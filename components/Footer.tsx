@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Instagram, Facebook } from "lucide-react";
 import Container from "./Container";
 import { NAV_LINKS, CONTACT, SOCIAL, SITE } from "@/lib/constants";
@@ -9,9 +10,13 @@ export default function Footer() {
       <Container>
         <div className="grid grid-cols-1 gap-12 border-b border-cream/10 pb-12 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <span className="font-display text-lg font-semibold tracking-[0.08em] text-cream">
-              ALTA RENOVATIONS
-            </span>
+            <Image
+              src="/images/logo.png"
+              alt="Alta Renovations"
+              width={149}
+              height={120}
+              className="h-12 w-auto rounded-sm"
+            />
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-cream/60">
               &ldquo;{SITE.tagline}&rdquo;
             </p>

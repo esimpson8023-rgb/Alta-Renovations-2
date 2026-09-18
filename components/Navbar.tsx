@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import Container from "./Container";
 import { NAV_LINKS } from "@/lib/constants";
@@ -38,13 +39,15 @@ export default function Navbar() {
           aria-label="Primary"
           className="flex h-20 items-center justify-between"
         >
-          <a
-            href="#home"
-            className={`font-display text-lg font-semibold tracking-[0.08em] transition-colors sm:text-xl ${
-              scrolled || menuOpen ? "text-charcoal" : "text-cream"
-            }`}
-          >
-            ALTA RENOVATIONS
+          <a href="#home" className="flex items-center" aria-label="Alta Renovations — home">
+            <Image
+              src="/images/logo.png"
+              alt="Alta Renovations"
+              width={149}
+              height={120}
+              priority
+              className="h-12 w-auto rounded-sm sm:h-14"
+            />
           </a>
 
           <ul className="hidden items-center gap-10 md:flex">
