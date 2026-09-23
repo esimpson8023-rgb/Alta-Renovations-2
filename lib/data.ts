@@ -40,6 +40,7 @@ export const SERVICES: ServiceItem[] = [
     description: "Beautiful and practical bathroom transformations.",
     icon: Bath,
     tone: "stone",
+    image: "/images/bathroom-vanity.jpg",
   },
   {
     slug: "basement-renovations",
@@ -101,6 +102,7 @@ export const PROJECTS: ProjectItem[] = [
     type: "Bathroom Renovation",
     location: "[Project Location Placeholder]",
     tone: "stone",
+    image: "/images/bathroom-vanity.jpg",
   },
   {
     slug: "basement-entertainment-space",
