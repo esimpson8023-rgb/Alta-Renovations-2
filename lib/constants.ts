@@ -7,7 +7,7 @@
 export const SITE = {
   name: "Alta Renovations",
   tagline: "Quality renovations. Thoughtfully built.",
-  url: "https://www.altarenovations-placeholder.com",
+  url: "https://altarenovations.ca",
   description:
     "Alta Renovations delivers high-quality residential renovations designed to make your home more functional, comfortable, and beautiful.",
 };
