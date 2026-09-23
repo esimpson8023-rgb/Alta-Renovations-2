@@ -20,6 +20,8 @@ export interface ServiceItem {
   description: string;
   icon: LucideIcon;
   tone: ImageTone;
+  /** Path under /public to a real photo. Falls back to PlaceholderImage when unset. */
+  image?: string;
 }
 
 export const SERVICES: ServiceItem[] = [
@@ -30,6 +32,7 @@ export const SERVICES: ServiceItem[] = [
       "Modern, functional kitchens designed around the way you live.",
     icon: ChefHat,
     tone: "charcoal",
+    image: "/images/kitchen-open-concept.jpg",
   },
   {
     slug: "bathroom-renovations",
@@ -45,6 +48,7 @@ export const SERVICES: ServiceItem[] = [
       "Turn unused basement space into something your family can actually use.",
     icon: Layers,
     tone: "accent",
+    image: "/images/basement-pool-table.jpg",
   },
   {
     slug: "whole-home-renovations",
@@ -60,6 +64,7 @@ export const SERVICES: ServiceItem[] = [
       "Walls, flooring, trim, painting, and other interior improvements.",
     icon: PaintRoller,
     tone: "stone",
+    image: "/images/about-accent-wall.jpg",
   },
   {
     slug: "custom-renovations",
@@ -67,6 +72,7 @@ export const SERVICES: ServiceItem[] = [
     description: "Renovation solutions tailored specifically to your home.",
     icon: SlidersHorizontal,
     tone: "accent",
+    image: "/images/basement-bar.jpg",
   },
 ];
 
@@ -76,6 +82,8 @@ export interface ProjectItem {
   type: string;
   location: string;
   tone: ImageTone;
+  /** Path under /public to a real photo. Falls back to PlaceholderImage when unset. */
+  image?: string;
 }
 
 export const PROJECTS: ProjectItem[] = [
@@ -85,6 +93,7 @@ export const PROJECTS: ProjectItem[] = [
     type: "Kitchen Renovation",
     location: "[Project Location Placeholder]",
     tone: "charcoal",
+    image: "/images/hero-kitchen.jpg",
   },
   {
     slug: "luxury-bathroom-remodel",
@@ -99,6 +108,7 @@ export const PROJECTS: ProjectItem[] = [
     type: "Basement Renovation",
     location: "[Project Location Placeholder]",
     tone: "accent",
+    image: "/images/basement-pool-table.jpg",
   },
   {
     slug: "modern-open-concept-living",
@@ -106,6 +116,7 @@ export const PROJECTS: ProjectItem[] = [
     type: "Whole-Home Renovation",
     location: "[Project Location Placeholder]",
     tone: "charcoal",
+    image: "/images/kitchen-open-concept.jpg",
   },
   {
     slug: "refined-interior-refresh",
@@ -120,6 +131,7 @@ export const PROJECTS: ProjectItem[] = [
     type: "Custom Renovation",
     location: "[Project Location Placeholder]",
     tone: "accent",
+    image: "/images/basement-bar.jpg",
   },
 ];
 

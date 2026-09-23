@@ -1,7 +1,6 @@
+import Image from "next/image";
 import { ChevronDown } from "lucide-react";
-import { Home as HomeIcon } from "lucide-react";
 import Container from "./Container";
-import PlaceholderImage from "./PlaceholderImage";
 
 export default function Hero() {
   return (
@@ -10,12 +9,13 @@ export default function Hero() {
       className="relative flex min-h-[100svh] items-center overflow-hidden"
     >
       <div className="absolute inset-0 -z-10">
-        <PlaceholderImage
-          tone="charcoal"
-          icon={HomeIcon}
-          caption="Full-width hero photo placeholder"
-          variant="corner"
-          className="h-full w-full"
+        <Image
+          src="/images/hero-kitchen.jpg"
+          alt="Newly renovated kitchen with quartz countertops and custom white cabinetry"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[center_25%]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-charcoal/30" />
       </div>

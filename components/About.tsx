@@ -1,8 +1,7 @@
-import { Hammer } from "lucide-react";
+import Image from "next/image";
 import Container from "./Container";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
-import PlaceholderImage from "./PlaceholderImage";
 
 export default function About() {
   return (
@@ -28,13 +27,14 @@ export default function About() {
 
           <Reveal
             delay={150}
-            className="order-1 aspect-[4/5] w-full lg:order-2"
+            className="relative order-1 aspect-[4/5] w-full overflow-hidden rounded-sm lg:order-2"
           >
-            <PlaceholderImage
-              tone="stone"
-              icon={Hammer}
-              label="Craftsmanship in Progress"
-              className="h-full w-full rounded-sm"
+            <Image
+              src="/images/about-accent-wall.jpg"
+              alt="Custom wood slat accent wall with built-in media console"
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover"
             />
           </Reveal>
         </div>
