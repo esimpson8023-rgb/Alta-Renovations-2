@@ -40,7 +40,7 @@ export const SERVICES: ServiceItem[] = [
     description: "Beautiful and practical bathroom transformations.",
     icon: Bath,
     tone: "stone",
-    image: "/images/bathroom-vanity.jpg",
+    image: "/images/bathroom-shower.jpg",
   },
   {
     slug: "basement-renovations",
