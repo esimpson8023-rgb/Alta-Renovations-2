@@ -127,7 +127,7 @@ export const PROJECTS: ProjectItem[] = [
     type: "Interior Renovation",
     location: "Ancaster, ON",
     tone: "stone",
-    image: "/images/fireplace-mantel.jpg",
+    image: "/images/basement-bar-counter.jpg",
   },
   {
     slug: "tailored-family-remodel",
