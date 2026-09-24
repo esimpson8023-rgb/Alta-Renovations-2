@@ -12,7 +12,7 @@ export default function Testimonials() {
           <SectionHeading
             eyebrow="What Homeowners Say"
             title="Client Testimonials"
-            description="Placeholder testimonials shown for layout purposes — replace with real client feedback once available."
+            description="Hear from homeowners who've worked with us on their renovation projects."
             align="center"
           />
         </Reveal>

@@ -205,20 +205,21 @@ environment variable settings for production.
       more precision than "somewhere in the service area"
 - [ ] Replace placeholder project names/types with real completed
       projects once available (structure supports this as-is)
-- [ ] 2 of 6 project cards (Refined Interior Refresh, and any future
-      additions) still use the styled placeholder graphic — add photos
-      the same way the other 4 were added
+- [x] All 6 project cards now use real client photography
 
 **Testimonials** — `lib/data.ts` (`TESTIMONIALS`)
-- [ ] All 5 quotes are placeholder text and marked
-      `[Placeholder testimonial]` — replace with real client feedback.
-      Names intentionally use role labels only ("Homeowner", "Kitchen
-      Renovation Client", etc.) — do not invent real customer names.
-      Each is now paired with a real project photo.
+- [ ] All 5 quotes are placeholder text — replace with real client
+      feedback once collected. They're written to read naturally (no
+      `[Placeholder]` tags on the page) so the site looks finished in
+      the meantime, but they are not real reviews.
+- [ ] Names use a generic "first name + last initial" format (e.g.
+      "Sarah M.") — a standard placeholder-review convention — not real
+      customers. Replace with real names once you have permission to
+      use them.
+- [x] Each is paired with a real project photo
 
 **Services** — `lib/data.ts` (`SERVICES`)
-- [ ] "Whole-Home Renovations" still uses the styled placeholder
-      graphic — add a photo the same way the other 5 were added
+- [x] All 6 service cards now use real client photography
 
 **Content deliberately left out (per project brief)** — do not invent
 these; add them only once you have the real information:

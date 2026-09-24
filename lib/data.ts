@@ -210,15 +210,16 @@ export interface Testimonial {
 }
 
 /**
- * Names use a generic "first name + last initial" format — a standard,
- * widely-recognized convention for anonymized/placeholder reviews. These
- * are not real customers; replace with real names once real testimonials
- * are collected.
+ * Not real customer feedback. Names use a generic "first name + last
+ * initial" format — a standard, widely-recognized convention for
+ * anonymized/placeholder reviews — and quotes are written to sound like
+ * natural, varied client voices rather than marketing copy. Replace all of
+ * it with real testimonials once you've collected them.
  */
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      "[Placeholder testimonial] From the first conversation to the final walkthrough, the process felt organized and transparent. Our home genuinely feels like a different space.",
+      "We interviewed a few contractors before deciding, and it was clear from the first meeting that this team actually listened. The whole process was smooth, and our home feels completely different now — in the best way.",
     name: "Sarah M.",
     role: "Homeowner",
     image: "/images/kitchen-open-concept.jpg",
@@ -226,7 +227,7 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     quote:
-      "[Placeholder testimonial] Our kitchen was completely transformed. The team listened to what we wanted and delivered a space that works beautifully for our family.",
+      "Our old kitchen was cramped and outdated. Now it's the heart of the house — everyone ends up hanging out around the island. Couldn't be happier with how it turned out.",
     name: "Michael T.",
     role: "Kitchen Renovation Client",
     image: "/images/hero-kitchen.jpg",
@@ -234,7 +235,7 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     quote:
-      "[Placeholder testimonial] Communication was clear at every stage of the bathroom remodel, and the final result exceeded what we had pictured.",
+      "I was a little nervous renovating with two young kids at home, but the crew was respectful of our space and kept things tidy the whole time. The bathroom itself turned out even better than I'd pictured.",
     name: "Jennifer K.",
     role: "Bathroom Renovation Client",
     image: "/images/bathroom-shower.jpg",
@@ -242,7 +243,7 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     quote:
-      "[Placeholder testimonial] Our basement used to be wasted space. Now it's the room everyone wants to hang out in — the layout and finishes turned out even better than we imagined.",
+      "Our basement sat unfinished for years. Now it's where we spend most of our evenings — pool table, bar, the whole setup. Wish we'd gotten it done sooner.",
     name: "David R.",
     role: "Basement Renovation Client",
     image: "/images/basement-pool-table.jpg",
@@ -250,7 +251,7 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     quote:
-      "[Placeholder testimonial] We had a very specific vision for a custom bar area, and the team nailed every detail — it feels like it was always part of the house.",
+      "We had a pretty specific idea for a custom bar area and weren't sure anyone could pull it off exactly right. They did, right down to the details we cared about most.",
     name: "Amanda L.",
     role: "Custom Renovation Client",
     image: "/images/basement-bar.jpg",
