@@ -1,13 +1,24 @@
 import { NextResponse } from "next/server";
+import { CONTACT } from "@/lib/constants";
 
 /**
- * Placeholder contact endpoint.
+ * Contact endpoint. Validates the incoming request, then forwards it to
+ * FormSubmit (https://formsubmit.co) which emails the submission straight
+ * to CONTACT.email — no API key or signup required.
  *
- * This validates the incoming request and returns success, but does not
- * send an email or store a lead anywhere — no email provider or database
- * has been configured. Before launch, wire this up to a real service
- * (e.g. Resend, SendGrid, Formspree, or your CRM's API) and see the
- * "Wiring up the contact form" section of README.md.
+ * Deliberately uses the plain endpoint (not /ajax/<email>) with a JSON
+ * Accept header: FormSubmit only sends its one-time activation email in
+ * response to a POST on the plain endpoint — the /ajax/ endpoint silently
+ * skips activation entirely, which would leave this permanently broken.
+ * The plain endpoint still returns JSON as long as Accept: application/json
+ * is set, so behavior here is otherwise identical to using /ajax/.
+ *
+ * One-time setup: the first submission after deploying triggers that
+ * activation email to CONTACT.email. Someone has to open it and click the
+ * confirmation link once; every submission after that delivers
+ * automatically. Until activated, FormSubmit responds 200 OK with
+ * {"success":"false"} rather than an error status, so the success field is
+ * checked explicitly below rather than trusting response.ok alone.
  */
 
 interface ContactPayload {
@@ -20,6 +31,7 @@ interface ContactPayload {
 }
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const FORMSUBMIT_ENDPOINT = `https://formsubmit.co/${encodeURIComponent(CONTACT.email)}`;
 
 export async function POST(request: Request) {
   let body: ContactPayload;
@@ -30,7 +42,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
   }
 
-  const { name, email, phone, projectType, message } = body;
+  const { name, email, phone, projectType, budget, message } = body;
 
   if (!name || !email || !phone || !projectType || !message) {
     return NextResponse.json(
@@ -46,6 +58,46 @@ export async function POST(request: Request) {
     );
   }
 
-  // TODO: send an email / create a lead record here.
+  try {
+    const forwardResponse = await fetch(FORMSUBMIT_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        phone,
+        "Project Type": projectType,
+        "Estimated Budget": budget || "Not provided",
+        message,
+        _subject: `New quote request from ${name} — Alta Renovations website`,
+        _template: "table",
+        _captcha: "false",
+      }),
+    });
+
+    if (!forwardResponse.ok) {
+      throw new Error(`FormSubmit responded with ${forwardResponse.status}`);
+    }
+
+    const forwardResult = await forwardResponse.json();
+    if (String(forwardResult?.success) !== "true") {
+      console.error(
+        "FormSubmit did not confirm delivery — likely still needs one-time activation.",
+        "Check the inbox for CONTACT.email for a confirmation link.",
+        forwardResult
+      );
+      throw new Error("FormSubmit did not report success.");
+    }
+  } catch (error) {
+    console.error("Failed to forward contact form submission:", error);
+    return NextResponse.json(
+      { error: "Something went wrong sending your request. Please try again." },
+      { status: 502 }
+    );
+  }
+
   return NextResponse.json({ success: true });
 }

@@ -154,22 +154,30 @@ the image already fills the whole card.
 ## 6. Wiring Up the Contact Form
 
 The form at `components/ContactForm.tsx` does full client-side validation
-and posts to `app/api/contact/route.ts`. That API route currently
-**validates and returns success but does not send an email or store
-anything** — no email provider or database is configured.
+and posts to `app/api/contact/route.ts`, which forwards valid submissions
+to [FormSubmit](https://formsubmit.co) — a free email-forwarding service
+that needs no API key or account. FormSubmit emails every submission
+straight to `CONTACT.email` in `lib/constants.ts` (currently
+`Alta.contracting.reno@gmail.com`), formatted as a table with the visitor's
+name, email, phone, project type, budget, and message. It also sets the
+visitor's email as the Reply-To, so replying to the notification email
+replies directly to them.
 
-To make it functional, pick one:
+**One-time activation step:** the first submission after deploying
+triggers an activation email from FormSubmit to that inbox. Someone needs
+to open it and click the confirmation link once — until that happens,
+submissions are silently discarded (the visitor sees a "something went
+wrong" error, since the route checks FormSubmit's own success field rather
+than assuming delivery). After activation, every submission delivers
+automatically with no further setup. **Right after deploying, submit the
+live form yourself once, check the target inbox for FormSubmit's
+activation email, click it, then submit a second test to confirm real
+delivery end to end.**
 
-- **Email via a transactional provider** (Resend, SendGrid, Postmark,
-  etc.): install their SDK, add your API key as an environment variable,
-  and call it inside `app/api/contact/route.ts` after validation.
-- **Formspree / Basin / a form-backend SaaS**: point the form's `fetch`
-  call in `ContactForm.tsx` directly at their endpoint instead of
-  `/api/contact`.
-- **A CRM or lead-gen tool**: call its API from the route handler.
-
-Environment variables (API keys, etc.) should go in a local `.env.local`
-file (already gitignored) and be added to your hosting provider's
+If you'd rather use a different provider later (Resend, SendGrid, a CRM,
+etc.), swap out the `fetch` call inside `app/api/contact/route.ts` — the
+validation and response shape can stay the same. Any API keys should go in
+a local `.env.local` file (already gitignored) and your hosting provider's
 environment variable settings for production.
 
 ---
@@ -180,18 +188,15 @@ environment variable settings for production.
 - [x] `SITE.url` → `altarenovations.ca`, connected via Vercel/GoDaddy
 - [x] `CONTACT.serviceArea` → "Waterdown, Ontario and the Greater
       Waterdown Area"
+- [x] `CONTACT.phone` / `CONTACT.phoneHref` → `(289) 834-1014`
+- [x] `CONTACT.email` → `Alta.contracting.reno@gmail.com`, wired to
+      actually receive quote requests — see §6
 - [x] `SOCIAL.instagram` → the real Alta Renovations Instagram
-- [x] Logo (navbar, footer, favicon) and 8 real project photos across
-      the hero, About section, service cards, project cards, and
-      testimonials
+- [x] Logo (navbar, footer, favicon) and 9 real project photos across
+      the hero, About section, service cards, project cards,
+      testimonials, and the CTA section background
 
 **Still placeholder** — `lib/constants.ts`
-- [ ] `CONTACT.phone` / `CONTACT.phoneHref` — currently `(555) 555-0123`,
-      the block NANPA reserves for fictional use (never a real
-      subscriber) so it's safe to leave live, but obviously non-functional
-- [ ] `CONTACT.email` — currently `info@example.com`, the domain IANA
-      reserves for documentation/example use (RFC 2606) — mail to it
-      safely goes nowhere rather than to a real inbox
 - [ ] `CONTACT.addressLine`, `CONTACT.hours` — set to a generic example
       address/hours; still unused on the page (defined for future use,
       e.g. a map or hours block)
@@ -235,9 +240,9 @@ these; add them only once you have the real information:
       `components/Footer.tsx` if you'd prefer it to auto-update.
 
 **Contact form backend**
-- [ ] `app/api/contact/route.ts` needs a real email/CRM integration —
-      see §6. Submissions currently validate successfully but go
-      nowhere, since no real phone/email is wired up yet.
+- [x] `app/api/contact/route.ts` forwards submissions to
+      `Alta.contracting.reno@gmail.com` via FormSubmit — see §6 for the
+      one-time activation step required after the first deploy.
 
 ---
 
