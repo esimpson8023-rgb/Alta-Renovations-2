@@ -1,17 +1,20 @@
+import Image from "next/image";
 import Container from "./Container";
 import Reveal from "./Reveal";
 
 export default function CTA() {
   return (
     <section className="relative overflow-hidden bg-charcoal py-24 sm:py-32">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-[0.05]"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(135deg, #F7F4EE 0px, #F7F4EE 1px, transparent 1px, transparent 18px)",
-        }}
-      />
+      <div className="absolute inset-0">
+        <Image
+          src="/images/cta-bathroom-skylight.jpg"
+          alt="Bathroom renovation with skylight and custom glass shower"
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-charcoal/80" />
+      </div>
       <Container className="relative">
         <Reveal className="mx-auto flex max-w-2xl flex-col items-center gap-6 text-center">
           <h2 className="font-display text-3xl text-balance text-cream sm:text-4xl lg:text-5xl">
