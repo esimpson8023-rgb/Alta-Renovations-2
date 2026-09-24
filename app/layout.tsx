@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { SITE } from "@/lib/constants";
 import "./globals.css";
 
@@ -83,6 +84,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
         {children}
+        <Analytics />
       </body>
     </html>
   );
