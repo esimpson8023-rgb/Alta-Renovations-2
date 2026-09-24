@@ -176,41 +176,49 @@ environment variable settings for production.
 
 ## 7. Placeholder Checklist — Replace Before Launch
 
-Everything below is a placeholder. Search the codebase for these exact
-strings to find every occurrence.
+**Already real** (updated as the client provided them):
+- [x] `SITE.url` → `altarenovations.ca`, connected via Vercel/GoDaddy
+- [x] `CONTACT.serviceArea` → "Waterdown, Ontario and the Greater
+      Waterdown Area"
+- [x] `SOCIAL.instagram` → the real Alta Renovations Instagram
+- [x] Logo (navbar, footer, favicon) and 8 real project photos across
+      the hero, About section, service cards, project cards, and
+      testimonials
 
-**Business contact info** — `lib/constants.ts`
-- [ ] `CONTACT.phone` / `CONTACT.phoneHref` — real phone number
-- [ ] `CONTACT.email` — real business email
-- [ ] `CONTACT.serviceArea` — real service area / region
-- [ ] `CONTACT.addressLine`, `CONTACT.hours` — currently unused on the
-      page but defined for future use (e.g. if you add a map or hours block)
-
-**Social links** — `lib/constants.ts`
-- [ ] `SOCIAL.instagram` — real Instagram URL
-- [ ] `SOCIAL.facebook` — real Facebook URL
-
-**Site metadata** — `lib/constants.ts` and `app/layout.tsx`
-- [ ] `SITE.url` — your real production domain (also update
-      `metadataBase` usage — it reads from `SITE.url` automatically)
+**Still placeholder** — `lib/constants.ts`
+- [ ] `CONTACT.phone` / `CONTACT.phoneHref` — currently `(555) 555-0123`,
+      the block NANPA reserves for fictional use (never a real
+      subscriber) so it's safe to leave live, but obviously non-functional
+- [ ] `CONTACT.email` — currently `info@example.com`, the domain IANA
+      reserves for documentation/example use (RFC 2606) — mail to it
+      safely goes nowhere rather than to a real inbox
+- [ ] `CONTACT.addressLine`, `CONTACT.hours` — set to a generic example
+      address/hours; still unused on the page (defined for future use,
+      e.g. a map or hours block)
+- [ ] `SOCIAL.facebook` — currently `facebook.com/altarenovations` as a
+      guess at the handle; replace with the real page URL once created
 
 **Projects** — `lib/data.ts` (`PROJECTS`)
-- [ ] `location` field on each project — currently
-      `[Project Location Placeholder]`
+- [ ] `location` fields now use real nearby communities (Waterdown,
+      Flamborough, Burlington, Dundas, Ancaster, Carlisle, ON) as
+      generic area labels — swap in the real project's town if you want
+      more precision than "somewhere in the service area"
 - [ ] Replace placeholder project names/types with real completed
       projects once available (structure supports this as-is)
+- [ ] 2 of 6 project cards (Refined Interior Refresh, and any future
+      additions) still use the styled placeholder graphic — add photos
+      the same way the other 4 were added
 
 **Testimonials** — `lib/data.ts` (`TESTIMONIALS`)
-- [ ] All three quotes are placeholder text and marked
+- [ ] All 5 quotes are placeholder text and marked
       `[Placeholder testimonial]` — replace with real client feedback.
       Names intentionally use role labels only ("Homeowner", "Kitchen
       Renovation Client", etc.) — do not invent real customer names.
+      Each is now paired with a real project photo.
 
-**Images** — see §5 above
-- [ ] Hero background photo
-- [ ] About section photo
-- [ ] 6 service card photos
-- [ ] 6 project gallery photos
+**Services** — `lib/data.ts` (`SERVICES`)
+- [ ] "Whole-Home Renovations" still uses the styled placeholder
+      graphic — add a photo the same way the other 5 were added
 
 **Content deliberately left out (per project brief)** — do not invent
 these; add them only once you have the real information:
@@ -227,7 +235,8 @@ these; add them only once you have the real information:
 
 **Contact form backend**
 - [ ] `app/api/contact/route.ts` needs a real email/CRM integration —
-      see §6.
+      see §6. Submissions currently validate successfully but go
+      nowhere, since no real phone/email is wired up yet.
 
 ---
 

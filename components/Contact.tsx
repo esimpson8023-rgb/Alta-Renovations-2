@@ -26,8 +26,7 @@ export default function Contact() {
                     href={CONTACT.phoneHref}
                     className="text-sm text-stone transition-colors hover:text-accent"
                   >
-                    {CONTACT.phone}{" "}
-                    <span className="text-xs">(placeholder)</span>
+                    {CONTACT.phone}
                   </a>
                 </div>
               </li>
@@ -39,8 +38,7 @@ export default function Contact() {
                     href={`mailto:${CONTACT.email}`}
                     className="text-sm text-stone transition-colors hover:text-accent"
                   >
-                    {CONTACT.email}{" "}
-                    <span className="text-xs">(placeholder)</span>
+                    {CONTACT.email}
                   </a>
                 </div>
               </li>
@@ -65,7 +63,9 @@ export default function Contact() {
               </a>
               <a
                 href={SOCIAL.facebook}
-                aria-label="Alta Renovations on Facebook (placeholder link)"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Alta Renovations on Facebook"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-stone-pale text-charcoal transition-colors hover:border-accent hover:text-accent"
               >
                 <Facebook className="h-4 w-4" aria-hidden="true" />

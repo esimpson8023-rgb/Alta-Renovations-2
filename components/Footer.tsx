@@ -32,7 +32,9 @@ export default function Footer() {
               </a>
               <a
                 href={SOCIAL.facebook}
-                aria-label="Alta Renovations on Facebook (placeholder link)"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Alta Renovations on Facebook"
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-cream/15 transition-colors hover:border-accent hover:text-accent"
               >
                 <Facebook className="h-4 w-4" aria-hidden="true" />
@@ -81,8 +83,8 @@ export default function Footer() {
               Contact
             </h3>
             <ul className="mt-4 flex flex-col gap-2.5 text-sm text-cream/70">
-              <li>{CONTACT.phone} (placeholder)</li>
-              <li>{CONTACT.email} (placeholder)</li>
+              <li>{CONTACT.phone}</li>
+              <li>{CONTACT.email}</li>
               <li>{CONTACT.serviceArea}</li>
             </ul>
           </div>
