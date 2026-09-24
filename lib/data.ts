@@ -57,6 +57,7 @@ export const SERVICES: ServiceItem[] = [
     description: "Complete transformations that bring your vision to life.",
     icon: HomeIcon,
     tone: "charcoal",
+    image: "/images/living-room-fireplace.jpg",
   },
   {
     slug: "interior-renovations",
