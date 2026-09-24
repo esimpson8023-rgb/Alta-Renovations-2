@@ -92,7 +92,7 @@ export const PROJECTS: ProjectItem[] = [
     slug: "modern-kitchen-transformation",
     name: "Modern Kitchen Transformation",
     type: "Kitchen Renovation",
-    location: "[Project Location Placeholder]",
+    location: "Waterdown, ON",
     tone: "charcoal",
     image: "/images/hero-kitchen.jpg",
   },
@@ -100,7 +100,7 @@ export const PROJECTS: ProjectItem[] = [
     slug: "luxury-bathroom-remodel",
     name: "Luxury Bathroom Remodel",
     type: "Bathroom Renovation",
-    location: "[Project Location Placeholder]",
+    location: "Flamborough, ON",
     tone: "stone",
     image: "/images/bathroom-vanity.jpg",
   },
@@ -108,7 +108,7 @@ export const PROJECTS: ProjectItem[] = [
     slug: "basement-entertainment-space",
     name: "Basement Entertainment Space",
     type: "Basement Renovation",
-    location: "[Project Location Placeholder]",
+    location: "Burlington, ON",
     tone: "accent",
     image: "/images/basement-pool-table.jpg",
   },
@@ -116,7 +116,7 @@ export const PROJECTS: ProjectItem[] = [
     slug: "modern-open-concept-living",
     name: "Modern Open-Concept Living Space",
     type: "Whole-Home Renovation",
-    location: "[Project Location Placeholder]",
+    location: "Dundas, ON",
     tone: "charcoal",
     image: "/images/kitchen-open-concept.jpg",
   },
@@ -124,14 +124,14 @@ export const PROJECTS: ProjectItem[] = [
     slug: "refined-interior-refresh",
     name: "Refined Interior Refresh",
     type: "Interior Renovation",
-    location: "[Project Location Placeholder]",
+    location: "Ancaster, ON",
     tone: "stone",
   },
   {
     slug: "tailored-family-remodel",
     name: "Tailored Family Remodel",
     type: "Custom Renovation",
-    location: "[Project Location Placeholder]",
+    location: "Carlisle, ON",
     tone: "accent",
     image: "/images/basement-bar.jpg",
   },
@@ -202,6 +202,9 @@ export interface Testimonial {
   quote: string;
   name: string;
   role: string;
+  /** Path under /public to a photo of the finished project this client is describing. */
+  image?: string;
+  imageAlt?: string;
 }
 
 export const TESTIMONIALS: Testimonial[] = [
@@ -210,18 +213,40 @@ export const TESTIMONIALS: Testimonial[] = [
       "[Placeholder testimonial] From the first conversation to the final walkthrough, the process felt organized and transparent. Our home genuinely feels like a different space.",
     name: "Homeowner",
     role: "Homeowner",
+    image: "/images/kitchen-open-concept.jpg",
+    imageAlt: "Open-concept kitchen and dining renovation",
   },
   {
     quote:
       "[Placeholder testimonial] Our kitchen was completely transformed. The team listened to what we wanted and delivered a space that works beautifully for our family.",
     name: "Kitchen Renovation Client",
     role: "Kitchen Renovation Client",
+    image: "/images/hero-kitchen.jpg",
+    imageAlt: "Renovated white kitchen with quartz countertops",
   },
   {
     quote:
       "[Placeholder testimonial] Communication was clear at every stage of the bathroom remodel, and the final result exceeded what we had pictured.",
     name: "Bathroom Renovation Client",
     role: "Bathroom Renovation Client",
+    image: "/images/bathroom-shower.jpg",
+    imageAlt: "Marble bathroom shower renovation",
+  },
+  {
+    quote:
+      "[Placeholder testimonial] Our basement used to be wasted space. Now it's the room everyone wants to hang out in — the layout and finishes turned out even better than we imagined.",
+    name: "Basement Renovation Client",
+    role: "Basement Renovation Client",
+    image: "/images/basement-pool-table.jpg",
+    imageAlt: "Finished basement entertainment space with pool table",
+  },
+  {
+    quote:
+      "[Placeholder testimonial] We had a very specific vision for a custom bar area, and the team nailed every detail — it feels like it was always part of the house.",
+    name: "Custom Renovation Client",
+    role: "Custom Renovation Client",
+    image: "/images/basement-bar.jpg",
+    imageAlt: "Custom built-in wet bar renovation",
   },
 ];
 
