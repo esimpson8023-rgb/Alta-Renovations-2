@@ -209,11 +209,17 @@ export interface Testimonial {
   imageAlt?: string;
 }
 
+/**
+ * Names use a generic "first name + last initial" format — a standard,
+ * widely-recognized convention for anonymized/placeholder reviews. These
+ * are not real customers; replace with real names once real testimonials
+ * are collected.
+ */
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
       "[Placeholder testimonial] From the first conversation to the final walkthrough, the process felt organized and transparent. Our home genuinely feels like a different space.",
-    name: "Homeowner",
+    name: "Sarah M.",
     role: "Homeowner",
     image: "/images/kitchen-open-concept.jpg",
     imageAlt: "Open-concept kitchen and dining renovation",
@@ -221,7 +227,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
       "[Placeholder testimonial] Our kitchen was completely transformed. The team listened to what we wanted and delivered a space that works beautifully for our family.",
-    name: "Kitchen Renovation Client",
+    name: "Michael T.",
     role: "Kitchen Renovation Client",
     image: "/images/hero-kitchen.jpg",
     imageAlt: "Renovated white kitchen with quartz countertops",
@@ -229,7 +235,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
       "[Placeholder testimonial] Communication was clear at every stage of the bathroom remodel, and the final result exceeded what we had pictured.",
-    name: "Bathroom Renovation Client",
+    name: "Jennifer K.",
     role: "Bathroom Renovation Client",
     image: "/images/bathroom-shower.jpg",
     imageAlt: "Marble bathroom shower renovation",
@@ -237,7 +243,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
       "[Placeholder testimonial] Our basement used to be wasted space. Now it's the room everyone wants to hang out in — the layout and finishes turned out even better than we imagined.",
-    name: "Basement Renovation Client",
+    name: "David R.",
     role: "Basement Renovation Client",
     image: "/images/basement-pool-table.jpg",
     imageAlt: "Finished basement entertainment space with pool table",
@@ -245,7 +251,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
       "[Placeholder testimonial] We had a very specific vision for a custom bar area, and the team nailed every detail — it feels like it was always part of the house.",
-    name: "Custom Renovation Client",
+    name: "Amanda L.",
     role: "Custom Renovation Client",
     image: "/images/basement-bar.jpg",
     imageAlt: "Custom built-in wet bar renovation",
