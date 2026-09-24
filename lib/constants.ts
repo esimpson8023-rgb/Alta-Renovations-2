@@ -16,13 +16,13 @@ export const CONTACT = {
   phone: "(000) 000-0000",
   phoneHref: "tel:+10000000000",
   email: "info@altarenovations-placeholder.com",
-  serviceArea: "[Service Area Placeholder — e.g. Greater Metro Region]",
+  serviceArea: "Waterdown, Ontario and the Greater Waterdown Area",
   addressLine: "[Business Address Placeholder]",
   hours: "[Business Hours Placeholder]",
 };
 
 export const SOCIAL = {
-  instagram: "https://instagram.com/altarenovations_placeholder",
+  instagram: "https://www.instagram.com/alta.renovations.contracting/",
   facebook: "https://facebook.com/altarenovations_placeholder",
 };
 

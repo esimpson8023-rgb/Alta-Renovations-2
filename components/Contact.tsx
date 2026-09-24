@@ -56,7 +56,9 @@ export default function Contact() {
             <div className="mt-8 flex items-center gap-4">
               <a
                 href={SOCIAL.instagram}
-                aria-label="Alta Renovations on Instagram (placeholder link)"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Alta Renovations on Instagram"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-stone-pale text-charcoal transition-colors hover:border-accent hover:text-accent"
               >
                 <Instagram className="h-4 w-4" aria-hidden="true" />

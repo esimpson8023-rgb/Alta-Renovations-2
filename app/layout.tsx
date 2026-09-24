@@ -15,37 +15,39 @@ const inter = Inter({
   display: "swap",
 });
 
+const TITLE = "Home Renovation Services in Waterdown, ON | Alta Renovations";
+const DESCRIPTION =
+  "Alta Renovations delivers high-quality residential renovations — kitchens, bathrooms, basements, and whole-home remodels — for homeowners in Waterdown, Ontario and the Greater Waterdown Area. Request a free quote today.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "Professional Home Renovation Services | Alta Renovations",
+    default: TITLE,
     template: "%s | Alta Renovations",
   },
-  description:
-    "Alta Renovations delivers high-quality residential renovations — kitchens, bathrooms, basements, and whole-home remodels designed around your home and lifestyle. Request a free quote today.",
+  description: DESCRIPTION,
   keywords: [
-    "home renovations",
-    "kitchen renovation",
-    "bathroom renovation",
-    "basement renovation",
+    "home renovations Waterdown",
+    "renovation contractor Waterdown Ontario",
+    "kitchen renovation Waterdown",
+    "bathroom renovation Waterdown",
+    "basement renovation Waterdown",
     "whole-home renovation",
     "residential remodeling",
-    "renovation contractor",
+    "Greater Waterdown Area renovations",
   ],
   openGraph: {
-    title: "Professional Home Renovation Services | Alta Renovations",
-    description:
-      "High-quality residential renovations designed to make your home more functional, comfortable, and beautiful.",
+    title: TITLE,
+    description: DESCRIPTION,
     url: SITE.url,
     siteName: SITE.name,
     type: "website",
-    locale: "en_US",
+    locale: "en_CA",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Professional Home Renovation Services | Alta Renovations",
-    description:
-      "High-quality residential renovations designed to make your home more functional, comfortable, and beautiful.",
+    title: TITLE,
+    description: DESCRIPTION,
   },
   robots: {
     index: true,
@@ -56,6 +58,18 @@ export const metadata: Metadata = {
   },
 };
 
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  name: SITE.name,
+  url: SITE.url,
+  description: SITE.description,
+  areaServed: [
+    { "@type": "City", name: "Waterdown, Ontario" },
+    { "@type": "Place", name: "Greater Waterdown Area" },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -63,7 +77,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
